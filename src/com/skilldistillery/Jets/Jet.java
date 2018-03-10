@@ -12,7 +12,11 @@ public abstract class Jet {
 		}
 		
 		
-		public Jet (String model, double speed, int range, double price) {
+		public Jet (String model, double speed, int range, long price) {
+			this.model = model;
+			this.speed = speed;
+			this.range = range;
+			this.price = price;
 		}
 		
 		
@@ -62,7 +66,6 @@ public abstract class Jet {
 		public void setRange(int range) {
 			this.range = range;
 		}
-		
 }
 	
 	
