@@ -13,9 +13,6 @@ public class ControlTower {
 	
 
 	public void run() {
-//		for (int i = 0; i < airfield.airstrip.length; i++) {
-//			toString();
-//		}
 		menuOfOptions();
 
 	}
@@ -51,7 +48,8 @@ public class ControlTower {
 				break;
 
 			case 5:
-				Jet newJet = makeAJet();
+				int select = selectJetType(); 
+				Jet newJet = makeAJet(select);
 				if (newJet != null) {
 					airfield.addJet(newJet);
 				}
@@ -81,7 +79,7 @@ public class ControlTower {
 		}
 	}
 
-	public Jet makeAJet() {
+	public Jet makeAJet(int select) {
 		Jet[] airField = airfield.getJetArray();
 		int j = 0;
 		for (int i = 0; i < airField.length; i++) {
@@ -97,7 +95,6 @@ public class ControlTower {
 			else {
 				System.out.println("THERE IS SPACE FOR " + j + " MORE JETS IN THE AIRFIELD.");				
 			}
-//			int choice = selectJetType();
 			System.out.print("ENTER A JET MODEL: ");
 			String modeln = input.next();
 			System.out.println();
@@ -110,19 +107,42 @@ public class ControlTower {
 			System.out.print("ENTER THE JET'S PRICE IN DOLLARS: ");
 			long pricen = input.nextLong();
 			System.out.println();
-			JetImpl newJet = new JetImpl(modeln, speedn, rangen, pricen);
-			System.out.println("NEW JET SUCCESSFULLY CREATED");
-			return newJet;
 
+			if(select == 1) {
+				Jet newJet = new FighterJet(modeln, speedn, rangen, pricen);	
+				newJet = (Jet)newJet;
+				System.out.println("NEW JET SUCCESSFULLY CREATED");
+				return newJet;
+			}
+			if(select == 2) {
+				Jet newJet = new CargoJet(modeln, speedn, rangen, pricen);
+				newJet = (Jet)newJet;
+				System.out.println("NEW JET SUCCESSFULLY CREATED");
+				return newJet;
+			}
+			if(select == 3) {
+				Jet newJet = new PassengerJet(modeln, speedn, rangen, pricen);
+				newJet = (Jet)newJet;
+				System.out.println("NEW JET SUCCESSFULLY CREATED");
+				return newJet;
+			}
+			if(select == 4) {
+				Jet newJet = new JetImpl(modeln, speedn, rangen, pricen);
+				newJet = (Jet)newJet;
+				System.out.println("NEW JET SUCCESSFULLY CREATED");
+				return newJet;
+			}
 			
 		} else {
 			System.out.println(
 					"THERE IS NO ROOM IN THE AIRFIELD FOR MORE JETS. PLEASE WIN A LUCRITIVE GOVERNMENT DEFENSE CONTRACT OR CHOOSE ANOTHER OPTION.");
 			return null;
 		}
+		return null;
 	}
 
 	private int selectJetType() {
+		System.out.println("SELECT A JET TYPE TO ADD:");
 		while(true) {
 			System.out.println("1: FighterJet");
 			System.out.println("2: Cargo Jet");
