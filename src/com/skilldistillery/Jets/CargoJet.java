@@ -13,11 +13,13 @@ public class CargoJet extends Jet implements CargoLoad {
 		System.out.println(super.getModel() + " is taking off! OH NO WE FORGOT TO SECURE THE CARGO!");
 		System.out.println("The number of hours " + super.getModel() + " can fly for is " + String.format("%.3g%n", range/speed));
 		System.out.println("______________________________________________________________");
+		System.out.println();
 	}
 	@Override
 	public void loadCargo() {
 		System.out.println("The cargo of " + getModel() + " is loaded!");
-		
+		System.out.println("______________________________________________________________");
+		System.out.println();
 	}
 
 

@@ -33,12 +33,13 @@ public class Airfield {
 	public void listFleet() {
 		for (int i = 0; i < airstrip.length; i++) {
 			if (airstrip[i] != null) {
-				System.out.println("Jet Name: " + airstrip[i].getModel());
+				System.out.println("Jet Model: " + airstrip[i].getModel());
 				System.out.println("Jet Speed in MPH: " + airstrip[i].getSpeed());
 				System.out.println("Jet Speed in Mach: " + airstrip[i].getSpeedInMach());
 				System.out.println("Jet Range in Miles: " + airstrip[i].getRange());
 				System.out.println("Jet Price in Dollars: " + airstrip[i].getPrice());
 				System.out.println("______________________________________________________________________");
+				System.out.println();
 			}
 		}
 	}
@@ -57,12 +58,13 @@ public class Airfield {
 			}
 
 		}
-		System.out.println("Jet Name: " + airstrip[jetRangeInfo].getModel());
+		System.out.println("Jet Model: " + airstrip[jetRangeInfo].getModel());
 		System.out.println("Jet Speed in MPH: " + airstrip[jetRangeInfo].getSpeed());
 		System.out.println("Jet Speed in Mach: " + airstrip[jetRangeInfo].getSpeedInMach());
 		System.out.println("Jet Range in Miles: " + airstrip[jetRangeInfo].getRange());
 		System.out.println("Jet Price in Dollars: " + airstrip[jetRangeInfo].getPrice());
 		System.out.println("______________________________________________________________________");
+		System.out.println();
 	}
 
 	public void findFastestSpeed() {
@@ -78,12 +80,13 @@ public class Airfield {
 				jetSpeedInfo = i;
 			}
 		}
-		System.out.println("Jet Name: " + airstrip[jetSpeedInfo].getModel());
+		System.out.println("Jet Model: " + airstrip[jetSpeedInfo].getModel());
 		System.out.println("Jet Speed in MPH: " + airstrip[jetSpeedInfo].getSpeed());
 		System.out.println("Jet Speed in Mach: " + airstrip[jetSpeedInfo].getSpeedInMach());
 		System.out.println("Jet Range in Miles: " + airstrip[jetSpeedInfo].getRange());
 		System.out.println("Jet Price in Dollars: " + airstrip[jetSpeedInfo].getPrice());
 		System.out.println("______________________________________________________________________");
+		System.out.println();
 	}
 
 	public Jet[] getJetArray() {

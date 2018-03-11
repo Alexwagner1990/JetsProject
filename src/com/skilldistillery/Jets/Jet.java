@@ -40,7 +40,7 @@ public abstract class Jet {
 		}
 		public double getSpeedInMach(){
 			double machSpeed = speed*0.00130332;
-			return speed;
+			return machSpeed;
 		}
 
 		public String getModel() {

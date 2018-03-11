@@ -6,11 +6,16 @@ public class ControlTower {
 
 	Scanner input = new Scanner(System.in);
 	Airfield airfield = new Airfield();
+//	FighterJet fighter;
+//	PassengerJet passenger;
+//	CargoJet cargo;
+//	JetImpl other;
+	
 
 	public void run() {
-		for (int i = 0; i < airfield.airstrip.length; i++) {
-			toString();
-		}
+//		for (int i = 0; i < airfield.airstrip.length; i++) {
+//			toString();
+//		}
 		menuOfOptions();
 
 	}
@@ -21,6 +26,7 @@ public class ControlTower {
 				"YOUR SECURITY CREDENTIALS HAVE BEEN VERIFIED. YOU MAY NOW USE CONTROL TOWER FUNCTIONALITY TO MANAGE AIRFIELD JETS.");
 		while (choice != 9) {
 			System.out.println("WHAT WOULD YOU LIKE TO DO?");
+			System.out.println();
 			System.out.println(
 					"1: LIST FLEET\n2: DEPLOY THE FLEET\n3: VIEW FASTEST JET\n4: VIEW JET WITH LONGEST RANGE\n5: ADD JET\n6: LOAD CARGO\n7: DOGFIGHT\n8: BOARD PASSENGERS\n9: QUIT");
 			choice = input.nextInt();
@@ -85,28 +91,54 @@ public class ControlTower {
 		}
 
 		if (j > 0) {
-			System.out.println("THERE IS SPACE FOR " + j + " MORE JETS IN THE AIRFIELD.");
-			System.out.print("ENTER A JET NAME: ");
+			if(j == 1) {
+				System.out.println("THERE IS SPACE FOR " + j + " MORE JET IN THE AIRFIELD.");
+			}
+			else {
+				System.out.println("THERE IS SPACE FOR " + j + " MORE JETS IN THE AIRFIELD.");				
+			}
+//			int choice = selectJetType();
+			System.out.print("ENTER A JET MODEL: ");
 			String modeln = input.next();
 			System.out.println();
 			System.out.print("ENTER THE JET'S SPEED IN MPH: ");
 			double speedn = input.nextDouble();
 			System.out.println();
-			System.out.print("ENTER THE JET's RANGE IN MILES (NO DECIMALS): ");
+			System.out.print("ENTER THE JET'S RANGE IN MILES (NO DECIMALS): ");
 			int rangen = input.nextInt();
 			System.out.println();
-			System.out.print("ENTER THE JET'S PRICE: ");
+			System.out.print("ENTER THE JET'S PRICE IN DOLLARS: ");
 			long pricen = input.nextLong();
 			System.out.println();
 			JetImpl newJet = new JetImpl(modeln, speedn, rangen, pricen);
 			System.out.println("NEW JET SUCCESSFULLY CREATED");
 			return newJet;
+
+			
 		} else {
 			System.out.println(
 					"THERE IS NO ROOM IN THE AIRFIELD FOR MORE JETS. PLEASE WIN A LUCRITIVE GOVERNMENT DEFENSE CONTRACT OR CHOOSE ANOTHER OPTION.");
 			return null;
 		}
 	}
+
+	private int selectJetType() {
+		while(true) {
+			System.out.println("1: FighterJet");
+			System.out.println("2: Cargo Jet");
+			System.out.println("3: Passenger Jet");
+			System.out.println("4: Other Jet");
+			int choice = input.nextInt();
+			if (choice >0 && choice <5) {
+				return choice;
+			}
+			else {
+				System.out.println("PLEASE MAKE A VALID SELECTION");
+			}
+		}
+	}
+		
+	
 
 	public void flyAllTheJets() {
 		for (int i = 0; i < airfield.airstrip.length; i++) {
@@ -115,5 +147,7 @@ public class ControlTower {
 			}
 		}
 	}
+	
+	}
+		
 
-}
