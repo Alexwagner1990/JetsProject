@@ -11,7 +11,7 @@ public class PassengerJet extends Jet implements Passengers{
 	}
 	public void fly() {
 		System.out.println(super.getModel() + " taking off! PLEASE STOW ALL CARRYON ITEMS AND SET YOUR SEAT TO THE UPRIGHT POSITION!");
-		System.out.println(super.getModel() + " can fly for " + range/speed + " hours.");
+		System.out.println("The number of hours " + super.getModel() + " can fly for is " + String.format("%.3g%n", range/speed));
 		System.out.println("______________________________________________________________");
 	}
 	@Override
